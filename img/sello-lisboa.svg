@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="t5">
+  <title id="t5">Sello ilustrado de un tranvía, símbolo de Lisboa</title>
+  <circle cx="50" cy="50" r="46" fill="#f8f1e4" stroke="#b08d57" stroke-width="2" stroke-dasharray="3 3"/>
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#1b2a41" stroke-width="1"/>
+  <rect x="28" y="38" width="44" height="24" rx="3" fill="#c2703d"/>
+  <rect x="33" y="43" width="10" height="9" fill="#f8f1e4"/>
+  <rect x="47" y="43" width="10" height="9" fill="#f8f1e4"/>
+  <circle cx="36" cy="66" r="4" fill="#1b2a41"/>
+  <circle cx="64" cy="66" r="4" fill="#1b2a41"/>
+  <path d="M22,72 Q30,68 38,72 T54,72 T70,72 T86,72" fill="none" stroke="#3e6259" stroke-width="2"/>
+</svg>

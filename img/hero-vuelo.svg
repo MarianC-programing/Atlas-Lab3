@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="heroTituloV2">
+  <title id="heroTituloV2">Ilustración de un avión de papel siguiendo una ruta punteada entre tres destinos, sobre un cielo despejado</title>
+
+  <defs>
+    <linearGradient id="cielo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bfe3ea"/>
+      <stop offset="55%" stop-color="#e6f3ef"/>
+      <stop offset="100%" stop-color="#f7f1e6"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="500" fill="url(#cielo)"/>
+
+  <!-- nubes -->
+  <g fill="#ffffff" opacity="0.75">
+    <ellipse cx="150" cy="110" rx="70" ry="24"/>
+    <ellipse cx="205" cy="100" rx="50" ry="20"/>
+    <ellipse cx="980" cy="90" rx="80" ry="26"/>
+    <ellipse cx="1045" cy="80" rx="46" ry="18"/>
+    <ellipse cx="620" cy="60" rx="55" ry="18"/>
+  </g>
+
+  <!-- ruta punteada entre tres destinos -->
+  <path d="M 160,360 Q 430,150 600,220 T 1040,330" fill="none" stroke="#c53628" stroke-width="4" stroke-dasharray="2 16" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- pin destino 1 -->
+  <g transform="translate(160,360)">
+    <circle r="10" fill="#ffffff" stroke="#c53628" stroke-width="4"/>
+  </g>
+  <!-- pin destino 2 -->
+  <g transform="translate(600,220)">
+    <circle r="10" fill="#ffffff" stroke="#c53628" stroke-width="4"/>
+  </g>
+  <!-- pin destino 3 / llegada -->
+  <g transform="translate(1040,330)">
+    <path d="M0,-26 C15,-26 24,-14 24,-2 C24,14 0,32 0,32 C0,32 -24,14 -24,-2 C-24,-14 -15,-26 0,-26 Z" fill="#e6483a"/>
+    <circle r="8" fill="#ffffff"/>
+  </g>
+
+  <!-- avion de papel -->
+  <g transform="translate(560,205) rotate(18)">
+    <path d="M0,0 L64,-8 L14,14 L4,34 L-6,10 Z" fill="#ffffff" stroke="#1c1c1e" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M0,0 L14,14 L4,34 Z" fill="#ece7dd"/>
+  </g>
+</svg>

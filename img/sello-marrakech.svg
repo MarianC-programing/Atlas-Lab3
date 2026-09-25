@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="t2">
+  <title id="t2">Sello ilustrado de un arco y farol, símbolo de Marrakech</title>
+  <circle cx="50" cy="50" r="46" fill="#f8f1e4" stroke="#b08d57" stroke-width="2" stroke-dasharray="3 3"/>
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#1b2a41" stroke-width="1"/>
+  <path d="M32,72 L32,50 C32,35 68,35 68,50 L68,72 Z" fill="none" stroke="#3e6259" stroke-width="4"/>
+  <polygon points="50,26 58,38 42,38" fill="#c2703d"/>
+  <line x1="50" y1="38" x2="50" y2="46" stroke="#c2703d" stroke-width="3"/>
+</svg>

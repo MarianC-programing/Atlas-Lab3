@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas — Atlas</title>
+  <meta name="description" content="Reserva tu próxima ruta con Atlas completando el formulario de reservas.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <main>
+
+    <div class="lienzo">
+      <div class="tarjeta-superior">
+
+        <header class="encabezado">
+          <div class="barra-nav">
+            <a href="index.html" class="marca">
+              <img src="img/logo.svg" alt="Logotipo de Atlas">
+              <span class="marca-texto">Atlas<span>Cuadernos de viaje</span></span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="nav-checkbox">
+            <label for="menu-toggle" class="nav-toggle" aria-label="Abrir menú de navegación">&#9776;</label>
+
+            <ul class="nav-enlaces">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="destinos.html">Destinos</a></li>
+              <li><a href="reservas.html" aria-current="page">Reservas</a></li>
+              <li><a href="https://es.wikipedia.org/wiki/Turismo" target="_blank" rel="noopener">Guía de turismo ↗</a></li>
+            </ul>
+
+            <a href="reservas.html" class="nav-cta">Reservar ruta</a>
+          </div>
+        </header>
+
+        <div class="encabezado-pagina">
+          <h1>Reserva tu ruta</h1>
+          <p>Completa el formulario y te confirmamos por correo la disponibilidad, con un resumen de lo que elegiste. No se realiza ningún cobro en este paso.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <section class="seccion">
+      <div class="contenedor">
+        <form class="pasaje" autocomplete="on">
+
+          <div class="pasaje-principal">
+
+            <fieldset>
+              <legend>Datos del viajero</legend>
+
+              <div class="fila-campos">
+                <div class="campo">
+                  <label for="nombre">Nombre completo</label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Ej. María Fernández" required minlength="3">
+                </div>
+                <div class="campo">
+                  <label for="correo">Correo electrónico</label>
+                  <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                </div>
+              </div>
+
+              <div class="fila-campos">
+                <div class="campo">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="6000-0000" pattern="[0-9\-\+\s]{7,15}" required>
+                </div>
+                <div class="campo">
+                  <label for="pasajeros">Número de viajeros</label>
+                  <input type="number" id="pasajeros" name="pasajeros" min="1" max="12" value="1" required>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Detalles de la ruta</legend>
+
+              <div class="campo">
+                <label for="destino">Destino</label>
+                <select id="destino" name="destino" required>
+                  <option value="" disabled selected>Selecciona un destino</option>
+                  <option value="Kioto, Japón">Kioto, Japón</option>
+                  <option value="Marrakech, Marruecos">Marrakech, Marruecos</option>
+                  <option value="Cusco, Perú">Cusco, Perú</option>
+                  <option value="Reikiavik, Islandia">Reikiavik, Islandia</option>
+                  <option value="Lisboa, Portugal">Lisboa, Portugal</option>
+                  <option value="Otro / a definir">Otro / a definir</option>
+                </select>
+              </div>
+
+              <div class="fila-campos">
+                <div class="campo">
+                  <label for="fecha-salida">Fecha de salida</label>
+                  <input type="date" id="fecha-salida" name="fecha_salida" required>
+                </div>
+                <div class="campo">
+                  <label for="duracion">Duración (noches)</label>
+                  <input type="number" id="duracion" name="duracion" min="2" max="30" value="7" required>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label>Tipo de alojamiento</label>
+                <div class="opciones-radio">
+                  <label><input type="radio" name="alojamiento" value="Económico" checked> Económico</label>
+                  <label><input type="radio" name="alojamiento" value="Estándar"> Estándar</label>
+                  <label><input type="radio" name="alojamiento" value="Boutique"> Boutique</label>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="comentarios">Comentarios adicionales
+                  <span class="ayuda">Restricciones alimenticias, fechas flexibles, etc. (opcional)</span>
+                </label>
+                <textarea id="comentarios" name="comentarios" placeholder="Escribe aquí cualquier detalle que debamos saber…"></textarea>
+              </div>
+
+              <div class="campo">
+                <label><input type="checkbox" name="boletin" value="si"> Quiero recibir el boletín de nuevas rutas de Atlas</label>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="boton boton-primario">Confirmar solicitud de reserva</button>
+            <p class="pasaje-nota">Este resumen se completa automáticamente cuando envíes el formulario.</p>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <div>
+        <div class="pie-marca">
+          <img src="img/logo.svg" alt="Logotipo de Atlas">
+          <strong>Atlas</strong>
+        </div>
+        <p>Guía independiente de viajes hecha por curiosos, para curiosos. Contenido con fines académicos — Laboratorio 3, Ingeniería Web.</p>
+      </div>
+      <div>
+        <h4>Sitio</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="destinos.html">Destinos</a></li>
+          <li><a href="reservas.html">Reservas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recursos externos</h4>
+        <ul>
+          <li><a href="https://www.timeanddate.com/worldclock/" target="_blank" rel="noopener">Hora en el mundo ↗</a></li>
+          <li><a href="https://www.google.com/maps" target="_blank" rel="noopener">Google Maps ↗</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Anexo:Pasaportes_por_pa%C3%ADs" target="_blank" rel="noopener">Requisitos de pasaporte ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-legal">© 2026 Atlas — Proyecto Universidad Tecnológica de Panamá.</div>
+  </footer>
+
+</body>
+</html>

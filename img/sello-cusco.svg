@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="t3">
+  <title id="t3">Sello ilustrado de montañas escalonadas, símbolo de Cusco y Machu Picchu</title>
+  <circle cx="50" cy="50" r="46" fill="#f8f1e4" stroke="#b08d57" stroke-width="2" stroke-dasharray="3 3"/>
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#1b2a41" stroke-width="1"/>
+  <path d="M22,68 L36,44 L46,56 L58,32 L78,68 Z" fill="#3e6259"/>
+  <path d="M22,68 L36,44 L46,56" fill="none" stroke="#1b2a41" stroke-width="1.5"/>
+  <circle cx="58" cy="28" r="5" fill="#c2703d"/>
+</svg>
