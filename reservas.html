@@ -7,7 +7,7 @@
   <meta name="description" content="Reserva tu próxima ruta con Atlas completando el formulario de reservas.">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,14 +18,11 @@
       <div class="tarjeta-superior">
 
         <header class="encabezado">
-          <div class="barra-nav">
+          <nav class="barra-nav" aria-label="Navegación principal">
             <a href="index.html" class="marca">
               <img src="img/logo.svg" alt="Logotipo de Atlas">
               <span class="marca-texto">Atlas<span>Cuadernos de viaje</span></span>
             </a>
-
-            <input type="checkbox" id="menu-toggle" class="nav-checkbox">
-            <label for="menu-toggle" class="nav-toggle" aria-label="Abrir menú de navegación">&#9776;</label>
 
             <ul class="nav-enlaces">
               <li><a href="index.html">Inicio</a></li>
@@ -35,19 +32,35 @@
             </ul>
 
             <a href="reservas.html" class="nav-cta">Reservar ruta</a>
-          </div>
+            <details class="nav-movil">
+              <summary>Menú</summary>
+              <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="destinos.html">Destinos</a></li>
+                <li><a href="reservas.html" aria-current="page">Reservas</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Turismo" target="_blank" rel="noopener">Guía de turismo ↗</a></li>
+              </ul>
+            </details>
+          </nav>
         </header>
 
-        <div class="encabezado-pagina">
-          <h1>Reserva tu ruta</h1>
-          <p>Completa el formulario y te confirmamos por correo la disponibilidad, con un resumen de lo que elegiste. No se realiza ningún cobro en este paso.</p>
+        <div class="encabezado-pagina encabezado-reservas">
+          <h1>Prepara tu ruta</h1>
+          <p>Elige destino, fecha y preferencias. Esta versión académica todavía no confirma ni guarda reservas; no se realiza ningún cobro.</p>
         </div>
 
       </div>
     </div>
 
     <section class="seccion">
-      <div class="contenedor">
+      <div class="contenedor reserva-layout">
+        <aside class="reserva-inspiracion" aria-label="Inspiración para tu próxima ruta">
+          <img src="img/Turismo-Lisboa.jpg" alt="Tranvía recorriendo una calle de Lisboa" loading="lazy">
+          <div class="reserva-inspiracion-texto">
+            <p>Primero elegimos el rumbo. Después empiezan las historias.</p>
+            <span>Atlas · Cuadernos de viaje</span>
+          </div>
+        </aside>
         <form class="pasaje" autocomplete="on">
 
           <div class="pasaje-principal">
@@ -126,8 +139,8 @@
               </div>
             </fieldset>
 
-            <button type="submit" class="boton boton-primario">Confirmar solicitud de reserva</button>
-            <p class="pasaje-nota">Este resumen se completa automáticamente cuando envíes el formulario.</p>
+            <button type="submit" class="boton boton-primario">Probar formulario</button>
+            <p class="pasaje-nota">Demostración: no ingreses datos personales reales. El envío aún no está conectado a PHP.</p>
           </div>
 
         </form>
@@ -143,7 +156,7 @@
           <img src="img/logo.svg" alt="Logotipo de Atlas">
           <strong>Atlas</strong>
         </div>
-        <p>Guía independiente de viajes hecha por curiosos, para curiosos. Contenido con fines académicos — Laboratorio 3, Ingeniería Web.</p>
+        <p>Guía independiente de viajes hecha por curiosos, para curiosos. Contenido con fines académicos — Proyecto 1, Ingeniería Web.</p>
       </div>
       <div>
         <h4>Sitio</h4>

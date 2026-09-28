@@ -1,22 +1,19 @@
-/* ATLAS — Cuadernos de viaje   Laboratorio 3 — Ingeniería Web (v2) */
-
+/* Atlas — una guía visual de rutas. El contenido y el formulario siguen en HTML. */
 :root {
-  --rojo: #e6483a;
-  --rojo-oscuro: #c53628;
-  --tinta: #1c1c1e;
-  --tinta-suave: #55575c;
-  --fondo: #f4f2ee;
-  --tarjeta: #ffffff;
-  --borde: #e9e6e0;
-  --crema: #f7f1e6;
-
+  --navy: #17394f;
+  --navy-deep: #102d43;
+  --sky: #d7eaf1;
+  --cloud: #f6f9f8;
+  --sand: #ead7b8;
+  --copper: #a84923;
+  --copper-deep: #873b1e;
+  --ink: #173146;
+  --muted: #526774;
+  --line: #d4e0e4;
+  --white: #ffffff;
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Work Sans", Arial, sans-serif;
-
-  --max-width: 1180px;
-  --radio-tarjeta: 32px;
-  --radio-boton: 999px;
-  --radio-campo: 14px;
+  --max-width: 1200px;
 }
 
 * {
@@ -29,831 +26,940 @@ html {
 
 body {
   margin: 0;
-  color: var(--tinta);
+  color: var(--ink);
+  background: var(--cloud);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
-  background: linear-gradient(120deg, #cfe8e3 0%, #f4ded0 45%, #e7d9ef 100%) fixed;
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 a {
-  color: var(--rojo-oscuro);
+  color: var(--copper);
 }
 
 a:hover {
-  color: var(--rojo);
+  color: var(--copper-deep);
 }
 
 a:focus-visible,
 button:focus-visible,
+summary:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 3px solid var(--rojo);
-  outline-offset: 2px;
+  outline: 3px solid var(--copper);
+  outline-offset: 3px;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-body);
-  font-weight: 700;
-  color: var(--tinta);
-  line-height: 1.15;
-  margin: 0 0 0.5em;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.12;
 }
 
 p {
-  max-width: 62ch;
+  max-width: 68ch;
 }
 
 .contenedor {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  width: min(calc(100% - 3rem), var(--max-width));
+  margin-inline: auto;
 }
 
-/* ---------- Tarjeta superior (nav + hero / encabezado de página) ---------- */
 .lienzo {
-  padding: 1.5rem 1.5rem 0;
+  background: var(--white);
 }
 
 .tarjeta-superior {
-  max-width: 1400px;
-  margin: 0 auto;
-  background: var(--tarjeta);
-  border-radius: var(--radio-tarjeta);
-  box-shadow: 0 30px 60px rgba(28, 28, 30, 0.12);
-  overflow: hidden;
-  padding-bottom: 1rem;
+  max-width: 1440px;
+  margin-inline: auto;
 }
 
-main {
-  background: var(--fondo);
-}
-
-/* ---------- Nav ---------- */
+/* Navegación: una sola barra sobria para las tres páginas. */
 .barra-nav {
+  min-height: 94px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.4rem 2rem;
-  gap: 1rem;
+  gap: 2.5rem;
+  padding: 1.15rem clamp(1.5rem, 4vw, 4.5rem);
 }
 
 .marca {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
+  flex: none;
+  color: var(--navy);
   text-decoration: none;
-  color: var(--tinta);
+}
+
+.marca:hover {
+  color: var(--navy);
 }
 
 .marca img {
-  width: 34px;
-  height: 34px;
+  width: 43px;
+  height: 43px;
 }
 
 .marca-texto {
   font-family: var(--font-display);
+  font-size: 1.55rem;
   font-weight: 600;
-  font-size: 1.3rem;
-  color: var(--tinta);
+  line-height: 1;
 }
 
 .marca-texto span {
   display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
   font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--tinta-suave);
-  margin-top: -2px;
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
 }
 
-.nav-enlaces {
+.nav-enlaces,
+.nav-movil ul {
   list-style: none;
-  display: flex;
-  gap: 2rem;
   margin: 0;
   padding: 0;
 }
 
-.nav-enlaces a {
-  color: var(--tinta-suave);
+.nav-enlaces {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2.1rem);
+  margin-left: auto;
+}
+
+.nav-enlaces a,
+.nav-movil a {
+  color: var(--ink);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .nav-enlaces a:hover,
-.nav-enlaces a[aria-current="page"] {
-  color: var(--tinta);
+.nav-enlaces a[aria-current="page"],
+.nav-movil a:hover,
+.nav-movil a[aria-current="page"] {
+  color: var(--copper);
 }
 
 .nav-cta {
-  display: inline-block;
-  background: var(--rojo);
-  color: #fff;
+  flex: none;
+  border: 1px solid var(--navy);
+  padding: 0.7rem 1.25rem;
+  color: var(--navy);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.92rem;
-  padding: 0.7rem 1.4rem;
-  border-radius: var(--radio-boton);
+  font-size: 0.88rem;
+  font-weight: 700;
 }
 
 .nav-cta:hover {
-  background: var(--rojo-oscuro);
-  color: #fff;
+  color: var(--white);
+  background: var(--navy);
 }
 
-.nav-checkbox {
+.nav-movil {
   display: none;
 }
 
-.nav-toggle {
-  display: none;
-}
-
-/* ---------- Hero (portada) ---------- */
+/* El avión existente es el protagonista; no dependemos de un video ausente. */
 .hero {
-  padding: 1.5rem 2rem 2.5rem;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr);
+  min-height: 590px;
+  background: var(--navy);
 }
 
-.hero-eyebrow-sello {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid var(--borde);
-  border-radius: var(--radio-boton);
-  padding: 0.35rem 1rem;
-  font-size: 0.78rem;
-  color: var(--tinta-suave);
-  margin-bottom: 1.3rem;
-  background: var(--crema);
+.hero-copia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(2.5rem, 5vw, 5.5rem) clamp(1.5rem, 4.5vw, 5.5rem);
+  color: var(--white);
+}
+
+.hero-origen {
+  margin-bottom: 1.6rem;
+  padding-left: 1.35rem;
+  border-left: 3px solid var(--sand);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .hero h1 {
-  font-size: clamp(2.1rem, 4.4vw, 3.5rem);
-  max-width: 32ch;
-  margin: 0 auto 0.7rem;
+  max-width: 11ch;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(2.9rem, 5vw, 5.1rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
 }
 
-.hero h1 em {
-  font-style: normal;
-  color: var(--rojo);
-}
-
-.hero p.intro {
-  font-size: 1.08rem;
-  color: var(--tinta-suave);
-  margin: 0 auto 1.8rem;
-  max-width: 75ch;
+.hero .intro {
+  max-width: 49ch;
+  margin-bottom: 2rem;
+  color: #e0ebed;
+  font-size: 1rem;
 }
 
 .hero-acciones {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 2.5rem;
 }
 
-/* imagen/video en forma de píldora */
-.hero-ilustracion {
-  position: relative;
-  max-width: 1040px;
-  margin: 0 auto 2rem;
+.hero-nota {
+  color: #c6dce3;
+  font-size: 0.82rem;
 }
 
-.hero-media {
+.hero-visual {
   position: relative;
-  aspect-ratio: 1200 / 480;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
   overflow: hidden;
-  border-radius: 999px;
+  background: var(--sky);
 }
 
-.hero-media-imagen,
-.hero-media-video {
-  position: absolute;
-  inset: 0;
+.hero-visual img {
   width: 100%;
   height: 100%;
+  min-height: 590px;
   object-fit: cover;
+  object-position: center;
+  animation: atlas-revelar-foto 1.1s ease-out both;
 }
 
-.hero-media-imagen {
-  opacity: 1;
-  animation: atlas-ocultar-imagen 18s ease forwards;
-}
-
-.hero-media-video {
-  opacity: 0;
-  animation: atlas-mostrar-video 18s ease forwards;
-}
-
-@keyframes atlas-ocultar-imagen {
-  0%, 88% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes atlas-mostrar-video {
-  0%, 88% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.hero-video-check {
+.hero-visual figcaption {
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.hero-video-check:checked ~ .hero-media .hero-media-imagen {
-  animation: none;
-  opacity: 0;
-}
-
-.hero-video-check:checked ~ .hero-media .hero-media-video {
-  animation: none;
-  opacity: 1;
-}
-
-.hero-media-boton {
-  position: absolute;
-  right: 22px;
-  bottom: 18px;
-  z-index: 2;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--tinta);
-  border-radius: var(--radio-boton);
-  padding: 0.5rem 1.2rem;
-  font-size: 0.85rem;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  padding: 0.45rem 0.7rem;
+  color: var(--white);
+  background: rgba(16, 45, 67, 0.82);
+  font-size: 0.75rem;
   font-weight: 600;
-  cursor: pointer;
 }
 
-.hero-media-boton:hover {
-  background: #fff;
+@keyframes atlas-revelar-foto {
+  from { opacity: 0.75; transform: scale(1.035); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.hero-video-check:checked ~ .hero-media-boton {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-media-imagen,
-  .hero-media-video {
-    animation: none;
-  }
-}
-
-/* ---------- Barra rápida (atajo hacia el formulario de reservas) ---------- */
-.busqueda-rapida {
-  max-width: 980px;
-  margin: 0 auto;
-  background: var(--tarjeta);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio-boton);
-  box-shadow: 0 18px 40px rgba(28, 28, 30, 0.1);
-  display: flex;
-  align-items: stretch;
-  padding: 0.4rem;
-  text-decoration: none;
-  color: inherit;
-  gap: 0.2rem;
-}
-
-.busqueda-rapida:hover {
-  box-shadow: 0 22px 46px rgba(28, 28, 30, 0.14);
-}
-
-.campo-rapido {
-  flex: 1;
+.franja-ruta {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.6rem 1.2rem;
-  border-right: 1px solid var(--borde);
-  text-align: left;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.55rem clamp(1.5rem, 4vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
 }
 
-.campo-rapido:last-of-type {
-  border-right: none;
+.franja-ruta:hover {
+  color: var(--ink);
+  background: var(--cloud);
 }
 
-.campo-rapido svg {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  color: var(--tinta);
-}
-
-.campo-rapido strong {
+.franja-texto strong,
+.franja-texto small {
   display: block;
-  font-size: 0.85rem;
 }
 
-.campo-rapido span {
-  display: block;
-  font-size: 0.78rem;
-  color: var(--tinta-suave);
+.franja-texto strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
-.busqueda-boton {
-  flex-shrink: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: var(--rojo);
-  color: #fff;
-  display: flex;
+.franja-texto small {
+  color: var(--muted);
+  font-size: 0.87rem;
+}
+
+.franja-enlace {
+  flex: none;
+  color: var(--copper);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.franja-enlace span {
+  margin-left: 0.5rem;
+}
+
+/* Botones */
+.boton {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  align-self: center;
-  margin-left: 0.4rem;
-}
-
-.busqueda-boton svg {
-  width: 18px;
-  height: 18px;
-}
-
-/* ---------- Botones ---------- */
-.boton {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 600;
-  padding: 0.8rem 1.7rem;
-  border-radius: var(--radio-boton);
-  text-decoration: none;
+  min-height: 48px;
+  padding: 0.8rem 1.35rem;
   border: 1px solid transparent;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .boton-primario {
-  background: var(--rojo);
-  color: #fff;
+  background: var(--copper);
 }
 
 .boton-primario:hover {
-  background: var(--rojo-oscuro);
-  color: #fff;
+  color: var(--white);
+  background: var(--copper-deep);
 }
 
-.boton-secundario {
+.boton-claro {
+  border-color: #b3c9d1;
+  color: var(--white);
   background: transparent;
-  border-color: var(--tinta);
-  color: var(--tinta);
 }
 
-.boton-secundario:hover {
-  background: var(--tinta);
-  color: #fff;
+.boton-claro:hover {
+  color: var(--navy);
+  background: var(--white);
 }
 
-/* ---------- Secciones generales ---------- */
+/* Tres pasos reales: una secuencia, no una colección de tarjetas. */
 .seccion {
-  padding: 3.5rem 0;
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
 }
 
 .seccion-alterna {
-  background: var(--crema);
+  background: #e9f2f4;
 }
 
 .titulo-seccion {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
-  flex-wrap: wrap;
 }
 
 .titulo-seccion h2 {
-  font-size: 1.8rem;
+  max-width: 18ch;
+  margin-bottom: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 500;
 }
 
-.titulo-seccion .enlace-todo {
-  white-space: nowrap;
-  font-weight: 600;
-  text-decoration: none;
+.enlace-todo {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3rem;
 }
 
-/* pasos (como funciona) */
 .pasos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.3rem, 3vw, 3rem);
 }
 
 .paso {
-  background: var(--tarjeta);
-  border: 1px solid var(--borde);
-  border-radius: 20px;
-  padding: 1.6rem 1.5rem;
+  border-top: 3px solid var(--navy);
+  padding-top: 1.4rem;
 }
 
 .paso h3 {
-  font-size: 1.1rem;
+  margin-bottom: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
 }
 
-/* tarjetas "postal" */
+.paso p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* Postales con fotografías que ya pertenecen al proyecto. */
 .rejilla-destinos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.6rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
 }
 
 .postal {
-  background: var(--tarjeta);
-  border: 1px solid var(--borde);
-  border-radius: 24px;
-  padding: 1.6rem 1.5rem 1.4rem;
-  box-shadow: 0 14px 30px rgba(28, 28, 30, 0.06);
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
 }
 
-.postal-cabecera {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+.postal-imagen {
+  position: relative;
+  display: block;
+  color: inherit;
 }
 
-.sello {
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
+.postal-imagen > img:first-child {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.postal-imagen .sello {
+  position: absolute;
+  right: 1rem;
+  bottom: -1.4rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--white);
+  border: 4px solid var(--white);
   border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(28, 28, 30, 0.15);
 }
 
-.postal-cabecera h3 {
-  margin: 0;
-  font-size: 1.2rem;
+.postal-contenido {
+  padding: 1.5rem 1.35rem 1.3rem;
 }
 
 .postal-region {
   display: block;
-  font-size: 0.74rem;
-  letter-spacing: 0.06em;
-  color: var(--rojo-oscuro);
-  margin-top: 2px;
+  color: var(--copper);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.postal h3 {
+  margin: 0.3rem 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 600;
+}
+
+.postal h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.postal h3 a:hover {
+  color: var(--copper);
 }
 
 .postal p {
-  color: var(--tinta-suave);
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  min-height: 4.8em;
+  margin-bottom: 1.3rem;
+  color: var(--muted);
+  font-size: 0.91rem;
 }
 
 .postal-pie {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 0.86rem;
-  border-top: 1px solid var(--borde);
-  padding-top: 0.8rem;
+  gap: 0.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.85rem;
+  font-size: 0.83rem;
 }
 
 .postal-precio {
+  color: var(--copper);
   font-weight: 700;
-  color: var(--rojo-oscuro);
-  font-size: 1rem;
+  white-space: nowrap;
 }
 
-/* ---------- Citas ---------- */
 .cita {
-  background: var(--tinta);
-  color: #f5f4f2;
-  padding: 3rem 0;
+  padding: 4rem 0;
+  color: var(--white);
+  background: var(--navy-deep);
 }
 
 .cita blockquote {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-style: italic;
-  max-width: 46ch;
+  max-width: 38ch;
   margin: 0 auto 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.4;
   text-align: center;
 }
 
 .cita cite {
   display: block;
-  text-align: center;
-  font-style: normal;
-  color: var(--rojo);
+  color: var(--sand);
   font-size: 0.9rem;
+  font-style: normal;
+  text-align: center;
 }
 
-/* ---------- Página Destinos ---------- */
+/* Encabezados interiores y fichas de destino. */
 .encabezado-pagina {
-  padding: 1.5rem 2rem 2.5rem;
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem;
   text-align: center;
+  background: var(--sky);
 }
 
 .encabezado-pagina h1 {
-  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  max-width: 18ch;
+  margin: 0 auto 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.7rem);
+  font-weight: 500;
 }
 
 .encabezado-pagina p {
-  color: var(--tinta-suave);
+  max-width: 66ch;
   margin: 0 auto;
-  max-width: 75ch;
+  color: var(--muted);
+}
+
+.encabezado-reservas {
+  background: #f0f2eb;
 }
 
 .destino-detalle {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-  padding: 2.2rem 0;
-  border-bottom: 1px solid var(--borde);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 1.5rem;
 }
 
 .destino-detalle:last-of-type {
-  border-bottom: none;
+  border-bottom: 0;
+}
+
+.destino-detalle:nth-of-type(even) .destino-foto {
+  order: 2;
 }
 
 .destino-foto {
   position: relative;
+  min-width: 0;
 }
 
 .destino-foto .foto-real {
   width: 100%;
-  height: 280px;
+  height: clamp(280px, 32vw, 410px);
   object-fit: cover;
-  border-radius: 24px;
 }
 
 .destino-foto .sello-insignia {
   position: absolute;
-  right: -14px;
-  bottom: -14px;
-  width: 64px;
-  height: 64px;
-  background: var(--tarjeta);
+  right: -1rem;
+  bottom: -1rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: var(--white);
+  border: 5px solid var(--white);
   border-radius: 50%;
-  box-shadow: 0 6px 16px rgba(28, 28, 30, 0.2);
 }
 
-.destino-detalle .postal-region {
-  margin-bottom: 0.4rem;
+.destino-detalle h2 {
+  margin: 0.35rem 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 500;
+}
+
+.destino-detalle p {
+  color: var(--muted);
+}
+
+.destino-detalle a {
+  font-size: 0.91rem;
+  font-weight: 700;
+  text-underline-offset: 0.3rem;
 }
 
 .lista-datos {
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0;
   display: grid;
-  gap: 0.5rem;
-  font-size: 0.94rem;
+  gap: 0.55rem;
+  margin: 1.4rem 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
 }
 
-.lista-datos li strong {
-  color: var(--tinta);
-  margin-right: 0.4rem;
+.lista-datos li {
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--sand);
 }
 
-/* ---------- Formulario — página Reservas ---------- */
+/* Formulario conservado; solo cambia su presentación. */
+.reserva-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.reserva-inspiracion {
+  position: sticky;
+  top: 1.5rem;
+  min-height: 680px;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--navy);
+}
+
+.reserva-inspiracion::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(to top, rgba(16, 45, 67, 0.88), transparent 63%);
+}
+
+.reserva-inspiracion > img {
+  width: 100%;
+  height: 680px;
+  object-fit: cover;
+}
+
+.reserva-inspiracion-texto {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1;
+}
+
+.reserva-inspiracion-texto p {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.18;
+}
+
+.reserva-inspiracion-texto span {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 .pasaje {
-  background: var(--tarjeta);
-  border: 1px solid var(--borde);
-  border-radius: 28px;
-  max-width: 700px;
-  margin: 0 auto;
-  box-shadow: 0 20px 50px rgba(28, 28, 30, 0.08);
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
 }
 
 .pasaje-principal {
-  padding: 2.4rem 2.2rem;
+  padding: clamp(1.4rem, 3vw, 2.8rem);
 }
 
-.pasaje-nota {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--tinta-suave);
-  margin: 1rem 0 0;
+fieldset {
+  margin: 0 0 1.5rem;
+  padding: 1.2rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
 }
 
-.campo {
-  margin-bottom: 1.3rem;
-}
-
-.campo label {
-  display: block;
+fieldset legend {
+  padding: 0 0.8rem 0 0;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
   font-weight: 600;
-  margin-bottom: 0.4rem;
-  font-size: 0.92rem;
-  color: var(--tinta);
-}
-
-.campo .ayuda {
-  font-size: 0.8rem;
-  color: var(--tinta-suave);
-  font-weight: 400;
-  display: block;
-  margin-top: 0.2rem;
-}
-
-.campo input,
-.campo select,
-.campo textarea {
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid var(--borde);
-  border-radius: var(--radio-campo);
-  background: var(--fondo);
-  color: var(--tinta);
-}
-
-.campo textarea {
-  resize: vertical;
-  min-height: 100px;
 }
 
 .fila-campos {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-fieldset {
-  border: 1px solid var(--borde);
-  border-radius: 18px;
-  margin: 0 0 1.3rem;
-  padding: 1.1rem 1.2rem 1.3rem;
+.campo {
+  min-width: 0;
+  margin-bottom: 1.25rem;
 }
 
-fieldset legend {
-  font-weight: 600;
-  color: var(--tinta);
-  padding: 0 0.4rem;
+.campo label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.87rem;
+  font-weight: 700;
+}
+
+.campo .ayuda {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.campo input:not([type="radio"]):not([type="checkbox"]),
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #b8cbd0;
+  border-radius: 2px;
+  color: var(--ink);
+  background: var(--cloud);
+  font: inherit;
+}
+
+.campo textarea {
+  min-height: 110px;
+  resize: vertical;
 }
 
 .opciones-radio {
   display: flex;
-  gap: 1.5rem;
   flex-wrap: wrap;
-  font-size: 0.95rem;
+  gap: 0.8rem 1.3rem;
+  font-size: 0.9rem;
 }
 
 .opciones-radio label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
+  margin: 0;
   font-weight: 400;
 }
 
-/* ---------- Pie de página ---------- */
+.pasaje-nota {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Pie constante en todo el sitio. */
 .pie {
-  background: var(--tinta);
-  color: rgba(245, 244, 242, 0.85);
-  padding: 3rem 0 1.5rem;
+  padding: 3.5rem 0 1.5rem;
+  color: #e1ebee;
+  background: var(--navy-deep);
 }
 
 .pie .contenedor {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
 }
 
 .pie h4 {
-  color: #fff;
-  font-size: 1rem;
   margin-bottom: 0.9rem;
+  color: var(--white);
+  font-size: 0.95rem;
 }
 
 .pie ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .pie a {
-  color: rgba(245, 244, 242, 0.85);
+  color: #e1ebee;
+  font-size: 0.9rem;
   text-decoration: none;
 }
 
 .pie a:hover {
-  color: var(--rojo);
+  color: var(--sand);
 }
 
 .pie-marca {
   display: flex;
-  gap: 0.7rem;
   align-items: center;
+  gap: 0.7rem;
   margin-bottom: 0.8rem;
 }
 
 .pie-marca img {
-  width: 32px;
+  width: 36px;
+}
+
+.pie-marca strong {
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
 }
 
 .pie-legal {
-  border-top: 1px solid rgba(245, 244, 242, 0.15);
-  margin-top: 2.2rem;
-  padding-top: 1.2rem;
+  margin-top: 2.5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid #3a5868;
+  color: #adbfca;
+  font-size: 0.8rem;
   text-align: center;
-  font-size: 0.82rem;
-  color: rgba(245, 244, 242, 0.5);
 }
 
-/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .nav-enlaces,
+  .nav-cta {
+    display: none;
+  }
 
-@media (max-width: 860px) {
-  .pasos {
+  .nav-movil {
+    position: relative;
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav-movil summary {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .nav-movil summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-movil[open] ul {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 3;
+    display: grid;
+    gap: 0.7rem;
+    min-width: 220px;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    background: var(--white);
+    box-shadow: 0 16px 30px rgba(16, 45, 67, 0.16);
+  }
+
+  .hero {
     grid-template-columns: 1fr;
   }
 
-  .destino-detalle {
+  .hero h1 {
+    max-width: 17ch;
+  }
+
+  .hero-visual,
+  .hero-visual img {
+    height: 390px;
+    min-height: 390px;
+  }
+
+  .reserva-layout {
     grid-template-columns: 1fr;
   }
 
+  .reserva-inspiracion {
+    position: relative;
+    top: auto;
+    min-height: 320px;
+  }
+
+  .reserva-inspiracion > img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 720px) {
+  .contenedor {
+    width: min(calc(100% - 2rem), var(--max-width));
+  }
+
+  .barra-nav {
+    min-height: 76px;
+    padding-inline: 1rem;
+  }
+
+  .marca img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero-copia {
+    padding: 3rem 1.4rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 10vw, 4rem);
+  }
+
+  .hero-visual,
+  .hero-visual img {
+    height: 275px;
+    min-height: 275px;
+  }
+
+  .franja-ruta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.4rem 1rem;
+  }
+
+  .pasos,
+  .rejilla-destinos,
+  .destino-detalle,
   .pie .contenedor {
     grid-template-columns: 1fr;
   }
 
-  .busqueda-rapida {
-    flex-wrap: wrap;
-    border-radius: 24px;
+  .destino-detalle:nth-of-type(even) .destino-foto {
+    order: 0;
   }
 
-  .campo-rapido {
-    width: 50%;
-    border-right: none;
-    border-bottom: 1px solid var(--borde);
+  .destino-foto .foto-real {
+    height: 270px;
   }
 
-  .busqueda-boton {
-    margin: 0.6rem auto 0.3rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .nav-enlaces {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    background: var(--tarjeta);
-    padding: 1rem 1.5rem 1.5rem;
-    gap: 0.9rem;
-    display: none;
-    border-bottom: 1px solid var(--borde);
-  }
-
-  .nav-checkbox:checked ~ .nav-enlaces {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 1px solid var(--borde);
-    color: var(--tinta);
-    border-radius: 10px;
-    padding: 0.4rem 0.7rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-  }
-
-  .nav-checkbox:checked ~ .nav-toggle {
-    background: var(--rojo);
-    border-color: var(--rojo);
-    color: #fff;
-  }
-
-  .barra-nav {
-    position: relative;
-    flex-wrap: wrap;
+  .destino-foto .sello-insignia {
+    right: 0.5rem;
   }
 
   .fila-campos {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .campo-rapido {
-    width: 100%;
-    border-bottom: 1px solid var(--borde);
+  .reserva-inspiracion,
+  .reserva-inspiracion > img {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .reserva-inspiracion-texto {
+    right: 1.3rem;
+    bottom: 1.3rem;
+    left: 1.3rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .hero-visual img {
+    animation: none;
   }
 }
