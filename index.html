@@ -7,7 +7,7 @@
   <meta name="description" content="Atlas es una guía de viajes con rutas, destinos y consejos para planear tu próxima aventura.">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,14 +18,11 @@
       <div class="tarjeta-superior">
 
         <header class="encabezado">
-          <div class="barra-nav">
+          <nav class="barra-nav" aria-label="Navegación principal">
             <a href="index.html" class="marca">
               <img src="img/logo.svg" alt="Logotipo de Atlas">
               <span class="marca-texto">Atlas<span>Cuadernos de viaje</span></span>
             </a>
-
-            <input type="checkbox" id="menu-toggle" class="nav-checkbox">
-            <label for="menu-toggle" class="nav-toggle" aria-label="Abrir menú de navegación">&#9776;</label>
 
             <ul class="nav-enlaces">
               <li><a href="index.html" aria-current="page">Inicio</a></li>
@@ -35,68 +32,42 @@
             </ul>
 
             <a href="reservas.html" class="nav-cta">Reservar ruta</a>
-          </div>
+            <details class="nav-movil">
+              <summary>Menú</summary>
+              <ul>
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
+                <li><a href="destinos.html">Destinos</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Turismo" target="_blank" rel="noopener">Guía de turismo ↗</a></li>
+              </ul>
+            </details>
+          </nav>
         </header>
 
         <section class="hero">
-          <span class="hero-eyebrow-sello">Desde 2020 · Panamá</span>
-          <h1>El mundo se lee mejor <em>con el pasaporte en la mano</em>.</h1>
-          <p class="intro">
-            Atlas es un cuaderno de rutas para viajeros curiosos: reunimos destinos,
-            datos prácticos y un formulario simple para reservar tu próxima salida,
-            sin relleno ni promesas vacías.
-          </p>
-          <div class="hero-acciones">
-            <a href="destinos.html" class="boton boton-primario">Explorar destinos</a>
-            <a href="reservas.html" class="boton boton-secundario">Reservar una ruta</a>
-          </div>
-
-          <div class="hero-ilustracion">
-            <input type="checkbox" id="hero-video-toggle" class="hero-video-check">
-            <div class="hero-media">
-              <img src="img/atlas-avion.png" alt="Ilustración de un avión de papel siguiendo una ruta punteada entre tres destinos" class="hero-media-imagen">
-              <video class="hero-media-video" autoplay loop controls playsinline preload="metadata">
-                <source src="video/atlas-adelanto.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de este video.
-              </video>
+          <div class="hero-copia">
+            <p class="hero-origen">Desde Panamá hacia el mundo</p>
+            <h1>El mundo se lee mejor con el pasaporte en la mano.</h1>
+            <p class="intro">
+              Atlas es un cuaderno de rutas para viajeros curiosos: reunimos destinos,
+              datos prácticos y un formulario simple para planear tu próxima salida.
+            </p>
+            <div class="hero-acciones">
+              <a href="destinos.html" class="boton boton-primario">Explorar destinos</a>
+              <a href="reservas.html" class="boton boton-claro">Ver formulario</a>
             </div>
-            <label for="hero-video-toggle" class="hero-media-boton">▶ Ver video</label>
+            <span class="hero-nota">Cinco destinos para empezar a escribir tu historia.</span>
           </div>
-
-          <a href="reservas.html" class="busqueda-rapida">
-            <span class="campo-rapido">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.58 7-12a7 7 0 1 0-14 0c0 4.42 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              <span>
-                <strong>Destino</strong>
-                <span>¿A dónde vas?</span>
-              </span>
-            </span>
-            <span class="campo-rapido">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              <span>
-                <strong>Viajeros</strong>
-                <span>Agregar viajeros</span>
-              </span>
-            </span>
-            <span class="campo-rapido">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span>
-                <strong>Fecha de salida</strong>
-                <span>Agregar fecha</span>
-              </span>
-            </span>
-            <span class="campo-rapido">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span>
-                <strong>Duración</strong>
-                <span>Agregar noches</span>
-              </span>
-            </span>
-            <span class="busqueda-boton" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </span>
-          </a>
+          <figure class="hero-visual">
+            <img src="img/atlas-avion.png" alt="Avión de pasajeros visto de frente sobre un cielo con nubes" fetchpriority="high">
+            <figcaption>Atlas · Cuadernos de viaje</figcaption>
+          </figure>
         </section>
+
+        <a href="reservas.html" class="franja-ruta">
+          <span class="franja-texto"><strong>¿Ya tienes un destino en mente?</strong><small>Elige tu ruta y cuéntanos cuándo te gustaría viajar.</small></span>
+          <span class="franja-enlace">Ir al formulario <span aria-hidden="true">↗</span></span>
+        </a>
 
       </div>
     </div>
@@ -117,8 +88,8 @@
             <p>Combina ciudades, define fechas y anota lo que no te quieres perder.</p>
           </div>
           <div class="paso">
-            <h3>3. Reserva sin vueltas</h3>
-            <p>Completa el formulario de reservas y te confirmamos los detalles por correo.</p>
+            <h3>3. Prepara tu solicitud</h3>
+            <p>Completa el formulario con tus preferencias para preparar tu solicitud de viaje.</p>
           </div>
         </div>
       </div>
@@ -134,47 +105,50 @@
 
         <div class="rejilla-destinos">
           <article class="postal">
-            <div class="postal-cabecera">
+            <a href="destinos.html#kioto" class="postal-imagen" aria-label="Conocer la ruta a Kioto">
+              <img src="img/Japon_Kioto.jpg" alt="Templo de Kioto rodeado de árboles" loading="lazy">
               <img src="img/sello-kioto.svg" alt="" class="sello">
-              <div>
-                <h3>Kioto</h3>
-                <span class="postal-region">Japón · Templos y jardines</span>
+            </a>
+            <div class="postal-contenido">
+              <span class="postal-region">Japón · Templos y jardines</span>
+              <h3><a href="destinos.html#kioto">Kioto</a></h3>
+              <p>Mil templos, bosques de bambú y la vida de barrio detrás de las farolas de Gion.</p>
+              <div class="postal-pie">
+                <span>Marzo–abril</span>
+                <span class="postal-precio">Desde $1,450</span>
               </div>
-            </div>
-            <p>Mil templos, bosques de bambú y la vida de barrio detrás de las farolas de Gion.</p>
-            <div class="postal-pie">
-              <span>Mejor época: marzo–abril</span>
-              <span class="postal-precio">Desde $1,450</span>
             </div>
           </article>
 
           <article class="postal">
-            <div class="postal-cabecera">
+            <a href="destinos.html#marrakech" class="postal-imagen" aria-label="Conocer la ruta a Marrakech">
+              <img src="img/Marrakech.jpg" alt="Callejón de Marrakech con arquitectura tradicional" loading="lazy">
               <img src="img/sello-marrakech.svg" alt="" class="sello">
-              <div>
-                <h3>Marrakech</h3>
-                <span class="postal-region">Marruecos · Zocos y desierto</span>
+            </a>
+            <div class="postal-contenido">
+              <span class="postal-region">Marruecos · Zocos y desierto</span>
+              <h3><a href="destinos.html#marrakech">Marrakech</a></h3>
+              <p>Callejones color tierra, té de menta y una escapada de una noche única en el Sahara.</p>
+              <div class="postal-pie">
+                <span>Octubre–abril</span>
+                <span class="postal-precio">Desde $980</span>
               </div>
-            </div>
-            <p>Callejones color tierra, té de menta y una escapada de una noche unica en el Sahara.</p>
-            <div class="postal-pie">
-              <span>Mejor época: octubre–abril</span>
-              <span class="postal-precio">Desde $980</span>
             </div>
           </article>
 
           <article class="postal">
-            <div class="postal-cabecera">
+            <a href="destinos.html#cusco" class="postal-imagen" aria-label="Conocer la ruta a Cusco">
+              <img src="img/machu-picchu.jpg" alt="Machu Picchu en las montañas cercanas a Cusco" loading="lazy">
               <img src="img/sello-cusco.svg" alt="" class="sello">
-              <div>
-                <h3>Cusco</h3>
-                <span class="postal-region">Perú · Andes y ruinas incas</span>
+            </a>
+            <div class="postal-contenido">
+              <span class="postal-region">Perú · Andes y ruinas incas</span>
+              <h3><a href="destinos.html#cusco">Cusco</a></h3>
+              <p>El punto de partida hacia Machu Picchu y los pueblos escalonados del Valle Sagrado.</p>
+              <div class="postal-pie">
+                <span>Mayo–septiembre</span>
+                <span class="postal-precio">Desde $1,120</span>
               </div>
-            </div>
-            <p>El punto de partida hacia Machu Picchu y los pueblos escalonados del Valle Sagrado.</p>
-            <div class="postal-pie">
-              <span>Mejor época: mayo–septiembre</span>
-              <span class="postal-precio">Desde $1,120</span>
             </div>
           </article>
         </div>
@@ -198,7 +172,7 @@
           <img src="img/logo.svg" alt="Logotipo de Atlas">
           <strong>Atlas</strong>
         </div>
-        <p>Guía independiente de viajes hecha por curiosos, para curiosos. Contenido con fines académicos — Laboratorio 3, Ingeniería Web.</p>
+        <p>Guía independiente de viajes hecha por curiosos, para curiosos. Contenido con fines académicos — Proyecto 1, Ingeniería Web.</p>
       </div>
       <div>
         <h4>Sitio</h4>
