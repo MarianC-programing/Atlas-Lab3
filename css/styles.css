@@ -180,20 +180,44 @@ p {
   display: none;
 }
 
-/* El avión existente es el protagonista; no dependemos de un video ausente. */
+/* La foto original queda de respaldo si el clip no carga o se pide menos movimiento. */
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr);
-  min-height: 590px;
-  background: var(--navy);
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 650px;
+  overflow: hidden;
+  background: var(--navy-deep) url("../img/atlas-avion.png") center / cover no-repeat;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(10, 30, 43, 0.94) 0%, rgba(10, 30, 43, 0.77) 43%, rgba(10, 30, 43, 0.14) 100%),
+              linear-gradient(0deg, rgba(10, 30, 43, 0.55), transparent 42%);
+  pointer-events: none;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
 }
 
 .hero-copia {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: clamp(2.5rem, 5vw, 5.5rem) clamp(1.5rem, 4.5vw, 5.5rem);
+  width: min(100%, 820px);
+  padding: clamp(4rem, 7vw, 7rem) clamp(1.5rem, 5vw, 5.5rem) 8.5rem;
   color: var(--white);
 }
 
@@ -207,7 +231,7 @@ p {
 }
 
 .hero h1 {
-  max-width: 11ch;
+  max-width: 13ch;
   margin-bottom: 1.5rem;
   color: var(--white);
   font-family: var(--font-display);
@@ -217,7 +241,7 @@ p {
 }
 
 .hero .intro {
-  max-width: 49ch;
+  max-width: 45ch;
   margin-bottom: 2rem;
   color: #e0ebed;
   font-size: 1rem;
@@ -227,7 +251,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.35rem;
 }
 
 .hero-nota {
@@ -235,38 +259,52 @@ p {
   font-size: 0.82rem;
 }
 
-.hero-visual {
-  position: relative;
-  min-width: 0;
-  min-height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: var(--sky);
-}
-
-.hero-visual img {
-  width: 100%;
-  height: 100%;
-  min-height: 590px;
-  object-fit: cover;
-  object-position: center;
-  animation: atlas-revelar-foto 1.1s ease-out both;
-}
-
-.hero-visual figcaption {
+.hero-pista {
   position: absolute;
-  right: 1.4rem;
+  z-index: 2;
+  right: clamp(1.5rem, 5vw, 5.5rem);
   bottom: 1.4rem;
-  padding: 0.45rem 0.7rem;
+  left: clamp(1.5rem, 5vw, 5.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
   color: var(--white);
-  background: rgba(16, 45, 67, 0.82);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.78rem;
 }
 
-@keyframes atlas-revelar-foto {
-  from { opacity: 0.75; transform: scale(1.035); }
-  to { opacity: 1; transform: scale(1); }
+.hero-pista strong {
+  margin-right: 0.7rem;
+  color: var(--sand);
+  letter-spacing: 0.12em;
+}
+
+.hero-pista-acciones {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-pista a,
+.hero-pista button {
+  color: var(--white);
+  font: inherit;
+  text-decoration: none;
+}
+
+.hero-pista a:hover {
+  color: var(--sand);
+  text-decoration: underline;
+}
+
+.hero-pista button {
+  min-height: 36px;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(10, 30, 43, 0.5);
+  cursor: pointer;
 }
 
 .franja-ruta {
@@ -404,6 +442,73 @@ p {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 0.94rem;
+}
+
+/* Un tablero de salidas conecta intereses con las fichas existentes. */
+.etiqueta-seccion {
+  margin-bottom: 0.75rem;
+  color: var(--copper);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro-seccion {
+  max-width: 32ch;
+  margin: 0;
+  color: var(--muted);
+}
+
+.tablero-rutas {
+  border-top: 1px solid var(--navy);
+}
+
+.ruta-fila {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) 190px;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  padding: 1.6rem 1rem;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 180ms ease;
+}
+
+.ruta-fila:hover {
+  background: #edf4f4;
+}
+
+.ruta-numero {
+  color: var(--copper);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ruta-fila h3 {
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 500;
+}
+
+.ruta-fila p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.ruta-enlaces {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.ruta-enlaces a {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-underline-offset: 0.25rem;
 }
 
 /* Postales con fotografías que ya pertenecen al proyecto. */
@@ -609,6 +714,91 @@ p {
 .lista-datos li {
   padding-left: 0.85rem;
   border-left: 2px solid var(--sand);
+}
+
+.micro-ruta {
+  margin-top: 1.4rem;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--copper);
+  background: #edf4f4;
+}
+
+.micro-ruta strong,
+.nota-practica strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--navy);
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.micro-ruta p,
+.nota-practica p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.nota-practica {
+  margin: 1rem 0;
+}
+
+.fuente-oficial {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.seccion-checklist {
+  background: #e7f0ef;
+}
+
+.checklist-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(2rem, 8vw, 7rem);
+}
+
+.checklist-layout h2 {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4.2rem);
+  font-weight: 500;
+}
+
+.checklist-layout > div:first-child > p:not(.etiqueta-seccion) {
+  color: var(--muted);
+}
+
+.checklist-pasos {
+  border-top: 1px solid var(--navy);
+}
+
+.checklist-pasos details {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid #bdd1d2;
+}
+
+.checklist-pasos summary {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.checklist-pasos summary span {
+  color: var(--copper);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.checklist-pasos details p {
+  margin: 1rem 0 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.93rem;
 }
 
 /* Formulario conservado; solo cambia su presentación. */
@@ -852,18 +1042,18 @@ fieldset legend {
     box-shadow: 0 16px 30px rgba(16, 45, 67, 0.16);
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
   .hero h1 {
     max-width: 17ch;
   }
 
-  .hero-visual,
-  .hero-visual img {
-    height: 390px;
-    min-height: 390px;
+  .ruta-fila {
+    grid-template-columns: 125px minmax(0, 1fr);
+  }
+
+  .ruta-enlaces {
+    grid-column: 2;
+    flex-direction: row;
+    gap: 1rem;
   }
 
   .reserva-layout {
@@ -897,17 +1087,33 @@ fieldset legend {
   }
 
   .hero-copia {
-    padding: 3rem 1.4rem;
+    padding: 4rem 1.4rem 9rem;
   }
 
   .hero h1 {
     font-size: clamp(2.6rem, 10vw, 4rem);
   }
 
-  .hero-visual,
-  .hero-visual img {
-    height: 275px;
-    min-height: 275px;
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero::before {
+    background: linear-gradient(90deg, rgba(10, 30, 43, 0.9), rgba(10, 30, 43, 0.48)),
+                linear-gradient(0deg, rgba(10, 30, 43, 0.8), transparent 42%);
+  }
+
+  .hero-pista {
+    right: 1.4rem;
+    left: 1.4rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .hero-pista-acciones {
+    flex-wrap: wrap;
+    gap: 0.65rem;
   }
 
   .franja-ruta {
@@ -920,8 +1126,18 @@ fieldset legend {
   .pasos,
   .rejilla-destinos,
   .destino-detalle,
+  .checklist-layout,
   .pie .contenedor {
     grid-template-columns: 1fr;
+  }
+
+  .ruta-fila {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .ruta-enlaces {
+    grid-column: 1;
   }
 
   .destino-detalle:nth-of-type(even) .destino-foto {
@@ -959,7 +1175,11 @@ fieldset legend {
     scroll-behavior: auto;
   }
 
-  .hero-visual img {
-    animation: none;
+  .hero-video {
+    display: none;
+  }
+
+  .ruta-fila {
+    transition: none;
   }
 }

@@ -44,24 +44,28 @@
           </nav>
         </header>
 
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-titulo">
+          <video id="hero-video" class="hero-video" muted playsinline loop preload="none" poster="img/atlas-avion.png" data-src="video/avion-aterrizando-pexels-10406880.mp4" aria-hidden="true"></video>
           <div class="hero-copia">
-            <p class="hero-origen">Desde Panamá hacia el mundo</p>
-            <h1>El mundo se lee mejor con el pasaporte en la mano.</h1>
+            <p class="hero-origen">Atlas / Desde Panamá hacia el mundo</p>
+            <h1 id="hero-titulo">Hay viajes que comienzan antes de aterrizar.</h1>
             <p class="intro">
-              Atlas es un cuaderno de rutas para viajeros curiosos: reunimos destinos,
-              datos prácticos y un formulario simple para planear tu próxima salida.
+              Una guía para descubrir cinco destinos con más contexto: qué mirar,
+              por dónde empezar y qué preparar antes de salir.
             </p>
             <div class="hero-acciones">
-              <a href="destinos.html" class="boton boton-primario">Explorar destinos</a>
-              <a href="reservas.html" class="boton boton-claro">Ver formulario</a>
+              <a href="#elige-tu-ruta" class="boton boton-primario">Encuentra tu ruta</a>
+              <a href="destinos.html" class="boton boton-claro">Explora los destinos</a>
             </div>
-            <span class="hero-nota">Cinco destinos para empezar a escribir tu historia.</span>
+            <span class="hero-nota">Cultura, naturaleza o ciudad: elige lo que más te inspira.</span>
           </div>
-          <figure class="hero-visual">
-            <img src="img/atlas-avion.png" alt="Avión de pasajeros visto de frente sobre un cielo con nubes" fetchpriority="high">
-            <figcaption>Atlas · Cuadernos de viaje</figcaption>
-          </figure>
+          <div class="hero-pista">
+            <span><strong>01—05</strong> destinos para mirar más allá</span>
+            <div class="hero-pista-acciones">
+              <button id="hero-video-toggle" type="button" hidden>Pausar video</button>
+              <a href="https://www.pexels.com/video/airplane-landing-over-cars-10406880/" target="_blank" rel="noopener">Video: Salva F. Ayala / Pexels ↗</a>
+            </div>
+          </div>
         </section>
 
         <a href="reservas.html" class="franja-ruta">
@@ -91,6 +95,53 @@
             <h3>3. Prepara tu solicitud</h3>
             <p>Completa el formulario con tus preferencias para preparar tu solicitud de viaje.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLERO DE RUTAS: compara estilos antes de abrir las fichas. -->
+    <section class="seccion seccion-rutas" id="elige-tu-ruta" aria-labelledby="titulo-rutas">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <div>
+            <p class="etiqueta-seccion">Elige tu próximo capítulo</p>
+            <h2 id="titulo-rutas">¿Qué tipo de viaje buscas?</h2>
+          </div>
+          <p class="intro-seccion">No necesitas saber el destino todavía. Empieza por lo que te despierta curiosidad.</p>
+        </div>
+        <div class="tablero-rutas">
+          <article class="ruta-fila" id="ruta-cultura">
+            <span class="ruta-numero">01 / Cultura</span>
+            <div>
+              <h3>Historias que se caminan</h3>
+              <p>Templos, mercados y costumbres locales para conocer el lugar más allá de la foto.</p>
+            </div>
+            <div class="ruta-enlaces">
+              <a href="destinos.html#kioto">Kioto ↗</a>
+              <a href="destinos.html#marrakech">Marrakech ↗</a>
+            </div>
+          </article>
+          <article class="ruta-fila" id="ruta-naturaleza">
+            <span class="ruta-numero">02 / Naturaleza</span>
+            <div>
+              <h3>Paisajes para bajar el ritmo</h3>
+              <p>Montañas andinas o noches nórdicas: aquí el clima también forma parte del plan.</p>
+            </div>
+            <div class="ruta-enlaces">
+              <a href="destinos.html#cusco">Cusco ↗</a>
+              <a href="destinos.html#reikiavik">Reikiavik ↗</a>
+            </div>
+          </article>
+          <article class="ruta-fila" id="ruta-ciudad">
+            <span class="ruta-numero">03 / Ciudad</span>
+            <div>
+              <h3>Una ciudad, muchas capas</h3>
+              <p>Barrios, miradores y arquitectura para descubrir con tiempo y buenos zapatos.</p>
+            </div>
+            <div class="ruta-enlaces">
+              <a href="destinos.html#lisboa">Lisboa ↗</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -126,9 +177,9 @@
               <img src="img/sello-marrakech.svg" alt="" class="sello">
             </a>
             <div class="postal-contenido">
-              <span class="postal-region">Marruecos · Zocos y desierto</span>
+              <span class="postal-region">Marruecos · Medina y Agafay</span>
               <h3><a href="destinos.html#marrakech">Marrakech</a></h3>
-              <p>Callejones color tierra, té de menta y una escapada de una noche única en el Sahara.</p>
+              <p>La energía de la medina y una escapada al paisaje rocoso de Agafay; el Sáhara requiere otro trayecto.</p>
               <div class="postal-pie">
                 <span>Octubre–abril</span>
                 <span class="postal-precio">Desde $980</span>
@@ -151,6 +202,32 @@
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKLIST: información práctica sin prometer trámites ni reservas. -->
+    <section class="seccion seccion-checklist" id="antes-de-despegar" aria-labelledby="titulo-checklist">
+      <div class="contenedor checklist-layout">
+        <div>
+          <p class="etiqueta-seccion">Tu viaje empieza aquí</p>
+          <h2 id="titulo-checklist">Antes de despegar</h2>
+          <p>Una lista pequeña para convertir la inspiración en un plan. Los requisitos cambian: confirma siempre los vigentes en fuentes oficiales antes de comprar.</p>
+          <a href="reservas.html" class="enlace-todo">Ir al formulario de solicitud →</a>
+        </div>
+        <div class="checklist-pasos">
+          <details>
+            <summary><span>01</span> Documentos y entrada</summary>
+            <p>Comprueba la vigencia de tu pasaporte y consulta con la autoridad consular del destino si necesitas visa o algún requisito adicional.</p>
+          </details>
+          <details>
+            <summary><span>02</span> Presupuesto completo</summary>
+            <p>Además del vuelo, anota alojamiento, transporte local, entradas, comidas y una reserva para imprevistos. Los precios de Atlas son orientativos.</p>
+          </details>
+          <details>
+            <summary><span>03</span> Ritmo y temporada</summary>
+            <p>Revisa el clima y el tiempo de traslado entre lugares. Deja espacios libres: una buena ruta no necesita llenar cada hora.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -194,5 +271,6 @@
     <div class="pie-legal">© 2026 Atlas — Proyecto Universidad Tecnológica de Panamá.</div>
   </footer>
 
+  <script src="js/hero.js" defer></script>
 </body>
 </html>
